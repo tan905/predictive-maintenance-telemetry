@@ -1,6 +1,182 @@
 # predictive-maintenance-telemetry
 A predictive maintenance system utilizing machine learning to forecast manufacturing equipment failures directly from raw sensor telemetry, bypassing unrealistic diagnostic flags.
 
+## 📌 Project Overview
+
+Predictive maintenance helps industries reduce downtime by identifying potential machine failures before they occur.
+
+This project includes:
+
+- Data Cleaning & Preprocessing
+- Exploratory Data Analysis (EDA)
+- Machine Failure Analysis
+- Machine Learning Models
+- SQL-Based Analytics & Reporting
+- Risk Classification System
+
+---
+
+## 📂 Dataset
+
+**AI4I 2020 Predictive Maintenance Dataset**
+
+### Features
+
+| Feature | Description |
+|----------|-------------|
+| UDI | Unique Identifier |
+| Product ID | Product Identifier |
+| Type | Product Quality Type (L, M, H) |
+| Air Temperature [K] | Ambient Temperature |
+| Process Temperature [K] | Machine Process Temperature |
+| Rotational Speed [rpm] | Machine Rotational Speed |
+| Torque [Nm] | Applied Torque |
+| Tool Wear [min] | Tool Wear Duration |
+| Machine Failure | Failure Status |
+| TWF | Tool Wear Failure |
+| HDF | Heat Dissipation Failure |
+| PWF | Power Failure |
+| OSF | Overstrain Failure |
+| RNF | Random Failure |
+
+---
+
+## 🎯 Objectives
+
+- Analyze machine operating conditions
+- Identify factors contributing to machine failures
+- Build predictive maintenance models
+- Perform SQL-based failure analysis
+- Generate machine risk classifications
+
+---
+
+## 🛠️ Technologies Used
+
+### Python
+
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-Learn
+- Jupyter Notebook
+
+### Database
+
+- MySQL 8.0
+
+### Machine Learning Models
+
+- Logistic Regression
+- Decision Tree Classifier
+- Random Forest Classifier
+
+---
+
+## 📊 Exploratory Data Analysis
+
+The notebook includes:
+
+- Dataset Overview
+- Missing Value Analysis
+- Failure Distribution Analysis
+- Product Type Analysis
+- Correlation Heatmap
+- Feature Importance Analysis
+- Failure Pattern Investigation
+
+---
+
+## 🤖 Machine Learning Pipeline
+
+### Data Preprocessing
+
+- Feature Selection
+- Encoding Categorical Variables
+- Train-Test Split
+- Feature Scaling
+
+### Models Trained
+
+#### Logistic Regression
+Baseline classification model.
+
+#### Decision Tree
+Interpretable classification model.
+
+#### Random Forest
+Best-performing predictive maintenance model.
+
+### Evaluation Metrics
+
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+- Confusion Matrix
+
+---
+
+## 🗄️ SQL Analysis
+
+### Data Exploration
+
+- Total Records Analysis
+- Failure Distribution
+- Product Type Statistics
+
+### Failure Analysis
+
+- Failure Rate by Product Type
+- Temperature Analysis
+- Torque Analysis
+- Tool Wear Analysis
+
+### Risk Classification
+
+Machines are categorized into:
+
+- Low Risk
+- Medium Risk
+- High Risk
+
+using SQL CASE statements.
+
+### Advanced SQL Features
+
+- Views
+- Aggregate Functions
+- Window Functions
+- Summary Tables
+- Failure-Type Analysis
+- Risk Scoring
+
+---
+
+## 📈 Key Findings
+
+- Tool wear is a significant indicator of machine failure.
+- Higher torque values increase failure probability.
+- Product type influences reliability.
+- Random Forest achieved the highest predictive performance.
+- SQL risk scoring successfully identifies high-risk machines.
+
+---
+
+## 📷 Sample Analysis
+
+### Machine Failure Distribution
+- Failure vs Non-Failure Comparison
+
+### Correlation Analysis
+- Relationship between operating parameters
+
+### Risk Classification
+- SQL-based predictive risk categories
+
+---
+
 #  Real-Time Predictive Maintenance from Sensor Telemetry
 
 [![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://www.python.org/)
@@ -8,13 +184,6 @@ A predictive maintenance system utilizing machine learning to forecast manufactu
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 An end-to-end machine learning project demonstrating how to transition a predictive maintenance model from an artificially perfect "cheated" baseline to a robust, factory-floor-ready deployment using raw sensor data.
-
----
-
-##  Dataset Overview
-The project utilizes the **AI4I 2020 Predictive Maintenance Dataset** (10,000 samples), reflecting real-world telemetry from a milling machine:
-*   **Sensor Telemetry:** Air/Process Temperature ($K$), Rotational Speed ($rpm$), Torque ($Nm$), and Tool Wear ($min$).
-*   **Target:** `Machine failure` (Highly imbalanced: 339 failures vs. 9,661 normal operations).
 
 ---
 
@@ -28,11 +197,9 @@ To simulate a real factory floor, **all diagnostic flags were removed**. The mod
 
 ---
 
-## 🏆 Model Performance Comparison
+## 📝 Conclusion
 
-After stripping the diagnostic flags, the models were evaluated strictly on raw operational signals:
+This project demonstrates how Machine Learning and SQL Analytics can be integrated to build a predictive maintenance solution capable of identifying failure patterns, reducing downtime, and improving operational efficiency.
 
-| Model | Precision (Failures) | Recall (Failures) | F1-Score | Notes |
-| :--- | :---: | :---: | :---: | :--- |
-| **Random Forest Classifier** | **83.7%** | **59.0%** | **0.692** | ⭐ **Winner:** Low false-alarm rate; highly reliable for maintenance dispatch. |
-| **Logistic Regression** | 64.0% | 26.2% | 0.372 | Failed to capture complex non-linear relations (e.g., Torque vs. RPM). |
+---
+
